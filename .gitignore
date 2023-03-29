@@ -1,4 +1,35 @@
-.Rproj.user
+################################################################################
+#                               Archivos de R                                  #
+################################################################################
+
+# Contienen datos y objetos de R, se cargan automaticamente al iniciar RStudio
+# Pueden causar problemas de conflicto entre versiones, ya que cada usuario
+# tendra una versión diferente de este archivo con datos diferentes. Ademas
+# Pueden ocupar mucho espacio y relentizar la sincronización, es innecesario.
 .Rhistory
 .RData
+
+# Archivos generados automaticamente por RStudio: Contienen información 
+# específica del usuario que no es necesaria compartirla, tambien pueden 
+# contener información sensible como contraseñas, usernames y direcciones IP
+.Rproj.user/
 .Ruserdata
+
+################################################################################
+#                        Archivos de Datos (data files)                        #
+################################################################################
+
+# Data files
+#data/*.csv
+#data/*.tsv
+#data/*.xls
+#data/*.xlsx
+
+# Generated files
+#*.log
+#*.pdf
+#*.html
+#*.tex
+
+# Ignoring all files in a directory
+#dir_to_ignore/*
