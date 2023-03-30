@@ -1,5 +1,15 @@
+## Incertidumbres en las mediciones:
+
+Para obtener las mediciones de las magnitudes físicas analizadas en este circuito se uso el simulador de circuitos Tinkercad, usando el voltímetro para registrar las lecturas para medir el voltaje de la resistencia analizada como el voltaje suministrado al circuito. y el amperímetro para registrar la intensidad de corriente por el circuito.
+
+-   La incertidumbres de las mediciones realizadas por el voltímetro es de $\pm 0.01$ V.
+
+-   La incertidumbres de las mediciones realizadas por el amperímetro es de $\pm 0.1$ A.
+
+Visualizaciones:
+
 | Lectura | Voltaje.suministrado..V. | Intensidad.de.corriente..mI. | Voltaje.de.la.resistencia..V. |
-|--------:|-------------------------:|-----------------------------:|------------------------------:|
+|-----------------:|-----------------:|-----------------:|-----------------:|
 |       1 |                        2 |                         42.6 |                             2 |
 |       2 |                        4 |                         85.1 |                             4 |
 |       3 |                        6 |                        128.0 |                             6 |

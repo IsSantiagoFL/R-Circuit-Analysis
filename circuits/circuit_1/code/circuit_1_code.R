@@ -8,6 +8,7 @@
 
 # Carga de librerías necesarias
 library(knitr)
+library(errors)
 
 ################################################################################
 
@@ -33,6 +34,7 @@ bd_circuito_1$Voltaje.de.la.resistencia..V. <- round(bd_circuito_1$Voltaje.de.la
 
 
 # CARGA
+
 
 
 # VISUALIZACIÓN
