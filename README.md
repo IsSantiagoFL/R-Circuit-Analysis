@@ -29,3 +29,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 The code in this repository was inspired by my work in circuit analysis and data processing, as well as the many open source R packages that made this work possible.
+
+## Puntos de mejora
+- Considerar el uso de los paquetes; 'units' y 'measurements' para trabajar con valores numéricos con unidades incorporadas.
+- 
