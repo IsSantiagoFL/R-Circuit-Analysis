@@ -6,10 +6,11 @@ Para obtener las mediciones de las magnitudes físicas analizadas en este circui
 
 -   La incertidumbres de las mediciones realizadas por el amperímetro es de $\pm 0.1$ A.
 
-Visualizaciones:
+
+# Visualizaciones:
 
 | Lectura | Voltaje.suministrado..V. | Intensidad.de.corriente..mI. | Voltaje.de.la.resistencia..V. |
-|-----------------:|-----------------:|-----------------:|-----------------:|
+|-----------------:|-----------------:|------------------:|------------------:|
 |       1 |                        2 |                         42.6 |                             2 |
 |       2 |                        4 |                         85.1 |                             4 |
 |       3 |                        6 |                        128.0 |                             6 |

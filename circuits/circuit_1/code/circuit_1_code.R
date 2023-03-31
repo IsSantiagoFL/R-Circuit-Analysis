@@ -28,9 +28,21 @@ class(bd_circuito_1)
 str(bd_circuito_1)
 
 # Dar formato de la precisión de las lecturas a las columnas.
-bd_circuito_1$Voltaje.suministrado..V. <- round(bd_circuito_1$Voltaje.suministrado..V., 2)
-bd_circuito_1$Intensidad.de.corriente..mI. <- round(bd_circuito_1$Intensidad.de.corriente..mI., 1)
-bd_circuito_1$Voltaje.de.la.resistencia..V. <- round(bd_circuito_1$Voltaje.de.la.resistencia..V., 2)
+# bd_circuito_1$Voltaje.suministrado..V. <- round(bd_circuito_1$Voltaje.suministrado..V., 2)
+# bd_circuito_1$Intensidad.de.corriente..mI. <- round(bd_circuito_1$Intensidad.de.corriente..mI., 1)
+# bd_circuito_1$Voltaje.de.la.resistencia..V. <- round(bd_circuito_1$Voltaje.de.la.resistencia..V., 2)
+
+# Dar las incertidumbres para cada columna:
+errors(bd_circuito_1$Voltaje.suministrado..V.) <- 0.01
+errors(bd_circuito_1$Voltaje.de.la.resistencia..V.) <- 0.01
+
+errors(bd_circuito_1$Intensidad.de.corriente..mI.) <- 0.1
+
+bd_circuito_1
+View(bd_circuito_1)
+class(bd_circuito_1)
+str(bd_circuito_1)
+
 
 
 # CARGA
