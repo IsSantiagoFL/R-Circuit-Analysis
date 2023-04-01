@@ -6,11 +6,45 @@ Para obtener las mediciones de las magnitudes físicas analizadas en este circui
 
 -   La incertidumbres de las mediciones realizadas por el amperímetro es de $\pm 0.1$ A.
 
+## Resistencia del circuito:
+
+Para el calculo experimental de la resistencia del circuito se uso la siguiente forma de la ecuación de la Ley de Ohm:
+
+$$ R = \dfrac{V_{resistencia}}{I}$$ De esta forma nos es útil calcular el valor experimental de la resistencia, ya que se hallaron los valores para el voltaje de la resistencia y la intensidad de corriente que pasa por el circuito.
+
+Dado que nos estamos refiriendo a mediciones experimentales de magnitudes físicas, hay una incertidumbre indirecta en el calculo de la resistencia, la cual se hallara usando la 'Regla general de propagación de incertidumbre' considerando las covarianzas. La ecuación de la Regla general de propagación de incertidumbre es la siguiente:
+
+$$\delta f = \sqrt{\sum_{i=1}^n \left(\frac{\partial f}{\partial x_i} \delta x_i\right)^2}$$
+
+Donde $f$ representa la variable cuya incertidumbre se desea calcular, $x_i$ es la i-ésima variable de entrada y $\delta$ representa la incertidumbre de cada variable de entrada. La fórmula se utiliza para calcular la incertidumbre de una función que depende de varias variables con incertidumbres conocidas. Como en nuestro caso solo tenemos dos varialbes la ecuación para la regla general de propagación de incertidumbre se reduce a la siguiente expresión:
+
+$$\delta f = \sqrt{\left(\frac{\partial f}{\partial x_1} \delta x_1\right)^2 + \left(\frac{\partial f}{\partial x_2} \delta x_2\right)^2}$$ Remplazando los valores para $f = R$ y $x_1 = V; x_2 =I$ donde la función $R$ esta expresada por $R=\frac{V}{I}$, nos queda la siguiente expresión:
+
+$$\delta R = \sqrt{\left(\frac{\partial R}{\partial V} \delta V\right)^2 + \left(\frac{\partial R}{\partial I} \delta I\right)^2} \; \: \: ; \: \: \: R=\dfrac{V}{I}$$
+
+Esta expresión representa una forma general para hallar la incertidumbre de la resistencia, donde para el circuito que se esta analizando se tienen los siguientes valores: $\delta V = 0.01$ y $\delta I = 0.1$
+
+En la ecuación anterior se puede ver que los valores para la incertidumbre de la resistencia varían según los valores que tengan $V$ e $I$. De esta manera se tienen los siguientes valores para la resistencia y su respectiva incertidumbre para cada una de las 10 lecturas de datos obtenidos.
+
+Table 1: Mediciones experimentales de la resistencia y su incertidumbre en un circuito eléctrico
+
+| Lectura | $V_{resistencia}$ (V) | $\delta V$ (V) | $I$ (mA) | $\delta I$ (mA) | Resistencia ($\Omega$) | $\delta R$ ($\Omega$) |
+|--------:|----------------------:|---------------:|---------:|----------------:|-----------------------:|----------------------:|
+|       1 |                     2 |           0.01 |     42.6 |             0.1 |                46.9484 |                0.2593 |
+|       2 |                     4 |           0.01 |     85.1 |             0.1 |                47.0035 |                0.1298 |
+|       3 |                     6 |           0.01 |    128.0 |             0.1 |                46.8750 |                0.0863 |
+|       4 |                     8 |           0.01 |    170.0 |             0.1 |                47.0588 |                0.0650 |
+|       5 |                    10 |           0.01 |    213.0 |             0.1 |                46.9484 |                0.0519 |
+|       6 |                    12 |           0.01 |    255.0 |             0.1 |                47.0588 |                0.0433 |
+|       7 |                    14 |           0.01 |    298.0 |             0.1 |                46.9799 |                0.0371 |
+|       8 |                    16 |           0.01 |    240.0 |             0.1 |                66.6667 |                0.0501 |
+|       9 |                    18 |           0.01 |    383.0 |             0.1 |                46.9974 |                0.0288 |
+|      10 |                    20 |           0.01 |    426.0 |             0.1 |                46.9484 |                0.0259 |
 
 # Visualizaciones:
 
 | Lectura | Voltaje.suministrado..V. | Intensidad.de.corriente..mI. | Voltaje.de.la.resistencia..V. |
-|-----------------:|-----------------:|------------------:|------------------:|
+|--------:|-------------------------:|-----------------------------:|------------------------------:|
 |       1 |                        2 |                         42.6 |                             2 |
 |       2 |                        4 |                         85.1 |                             4 |
 |       3 |                        6 |                        128.0 |                             6 |
