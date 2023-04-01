@@ -9,6 +9,7 @@
 # Carga de librerías necesarias
 library(knitr)
 library(errors)
+library(ggplot2)
 
 ################################################################################
 
@@ -43,6 +44,17 @@ errors(bd_circuito_1$Voltaje.de.la.resistencia..V._errores) <- 0.01
 
 errors(bd_circuito_1$Intensidad.de.corriente..mI._errores) <- 0.1
 
+# Valores maximos y minimos para los voltaje y la corriente:
+bd_circuito_1$corriente_minima <- errors_min(bd_circuito_1$Intensidad.de.corriente..mI._errores)
+bd_circuito_1$corriente_maxima <- errors_max(bd_circuito_1$Intensidad.de.corriente..mI._errores)
+
+bd_circuito_1$Voltaje_resistencia_minimo <- errors_min(bd_circuito_1$Voltaje.de.la.resistencia..V._errores)
+bd_circuito_1$Voltaje_resistencia_maximo <- errors_max(bd_circuito_1$Voltaje.de.la.resistencia..V._errores)
+
+bd_circuito_1$Voltaje_suministrado_minimo <- errors_min(bd_circuito_1$Voltaje.suministrado..V._errores)
+bd_circuito_1$Voltaje_suministrado_maximo <- errors_max(bd_circuito_1$Voltaje.suministrado..V._errores)
+
+
 bd_circuito_1
 View(bd_circuito_1)
 class(bd_circuito_1)
@@ -55,6 +67,8 @@ bd_circuito_1$incertidumbre_amperaje <- errors(bd_circuito_1$Intensidad.de.corri
 # Crear una columna para el valor experimental de la resistencia
 bd_circuito_1$Resistencia <- (bd_circuito_1$Voltaje.de.la.resistencia..V. / bd_circuito_1$Intensidad.de.corriente..mI.) * 1000
 bd_circuito_1$Resistencia_errores <- (bd_circuito_1$Voltaje.de.la.resistencia..V._errores / bd_circuito_1$Intensidad.de.corriente..mI._errores) * 1000
+bd_circuito_1$resistencia_minima <- errors_min(bd_circuito_1$Resistencia_errores)
+bd_circuito_1$resistencia_maxima <- errors_max(bd_circuito_1$Resistencia_errores)
 bd_circuito_1
 View(bd_circuito_1)
 class(bd_circuito_1)
@@ -73,10 +87,60 @@ tabla_resistencia
 
 # VISUALIZACIÓN
 ## kable(bd_circuito_1)
-kable(bd_circuito_1, format = "markdown", digits = 4, caption = "Datos obtenidos experimentalmente del circuito 1", col.names = c("Lectura", "Voltaje suministrado (V)", "Intensidad de corriente (mA)", "Volaje de la resistencia (V)") )
+## kable(bd_circuito_1, format = "markdown", digits = 4, caption = "Datos obtenidos experimentalmente del circuito 1", col.names = c("Lectura", "Voltaje suministrado (V)", "Intensidad de corriente (mA)", "Volaje de la resistencia (V)") )
 
 # Tabla para los valores experimentales de la incertidumbre.
 kable(tabla_resistencia, format = "markdown",
       digits = 4,
       caption = "Mediciones del voltaje, corriente, resistencia y sus incertidumbres.",
-      col.names = c("Lectura", "Volaje de la resistencia (V)", "inc_v", "Intensidad de corriente (mA)", "inc_I", "Resistencia", "inc_R") )
+      col.names = c("Lectura", "Voltaje de la resistencia (V)", "inc_v", "Intensidad de corriente (mA)", "inc_I", "Resistencia", "inc_R") )
+
+# Grafico de dispercion corriente vs voltaje
+# plot(tabla_resistencia$Voltaje.de.la.resistencia..V., tabla_resistencia$Intensidad.de.corriente..mI.)
+
+# Crear el gráfico de dispersión indicando valores maximo y minimo
+# plot(V_res, I, xlab = "Voltaje de resistencia (V)", ylab = "Intensidad (mA)", 
+     #ylim = c(0, max(I) + max(error_y)), 
+     # xlim = c(0, max(V_res) + max(error_x)), pch=19)
+
+# # Agregar las barras de error
+# # arrows(tabla_resistencia$Voltaje.de.la.resistencia..V., tabla_resistencia$Intensidad.de.corriente..mI. - tabla_resistencia$incertidumbre_amperaje, 
+#        tabla_resistencia$Voltaje.de.la.resistencia..V., tabla_resistencia$Intensidad.de.corriente..mI. + tabla_resistencia$incertidumbre_amperaje, 
+#        angle=90, code=3, length=0.1)
+# 
+# # arrows(tabla_resistencia$Voltaje.de.la.resistencia..V. - tabla_resistencia$incertidumbre_voltaje, 
+#        tabla_resistencia$Intensidad.de.corriente..mI., 
+#        tabla_resistencia$Voltaje.de.la.resistencia..V. + tabla_resistencia$incertidumbre_voltaje, 
+#        tabla_resistencia$Intensidad.de.corriente..mI., 
+#        angle=90, code=3, length=0.1)
+
+
+
+
+ggplot(bd_circuito_1, aes(x = Voltaje.de.la.resistencia..V., y = Intensidad.de.corriente..mI.)) + 
+  geom_point(color = "black", size = 2) +
+  geom_errorbar(aes(ymin = corriente_minima, 
+                    ymax = corriente_maxima), 
+                width = 0.0015,
+                color = "red") +
+  geom_errorbar(aes(xmin = Voltaje_resistencia_minimo, 
+                    xmax = Voltaje_resistencia_maximo), 
+                width = 0.15,
+                color = "red") +
+  labs(title = "Relación voltaje-corriente",
+       x = "Voltaje (V)",
+       y = "Corriente (mA)",
+       caption = "Fuente: Santiago Ismael Flores") +
+  theme_classic() + 
+  theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"),
+        axis.title = element_text(size = 14),
+        text = element_text(family = "Arial"),
+        axis.text = element_text(size = 12),
+        legend.position = "bottom",
+        legend.title = element_blank(),
+        legend.text = element_text(size = 12),
+        panel.background = element_rect(fill = "white", colour = "grey50", size = 1),
+        panel.grid.major = element_line(colour = "gray", size = 0.5),
+        panel.grid.minor = element_blank())
+
+
