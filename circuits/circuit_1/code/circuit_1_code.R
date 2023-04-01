@@ -140,7 +140,7 @@ ggplot(bd_circuito_1, aes(x = Voltaje.de.la.resistencia..V., y = Intensidad.de.c
         legend.title = element_blank(),
         legend.text = element_text(size = 12),
         panel.background = element_rect(fill = "white", colour = "grey50", size = 1),
-        panel.grid.major = element_line(colour = "gray", size = 0.5),
-        panel.grid.minor = element_blank())
+        panel.grid.major = element_line(colour = "gray", size = 0.4),
+        panel.grid.minor = element_line(color = "gray70", size = 0.3, linetype = "dashed"))
 
 
