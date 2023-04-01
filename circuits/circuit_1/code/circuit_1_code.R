@@ -130,12 +130,13 @@ ggplot(bd_circuito_1, aes(x = Voltaje.de.la.resistencia..V., y = Intensidad.de.c
   labs(title = "Relación voltaje-corriente",
        x = "Voltaje (V)",
        y = "Corriente (mA)",
-       caption = "Fuente: Santiago Ismael Flores") +
+       caption = "Gráfico de disperción que muestra la relación que hay entre el\n voltaje y la corriente que pasa por la resistencia del circuito") +
   theme_classic() + 
   theme(plot.title = element_text(hjust = 0.5, size = 15, face = "bold"),
         axis.title = element_text(size = 14),
         text = element_text(family = "Arial"),
         axis.text = element_text(size = 12),
+        plot.caption = element_text(hjust = 1, margin = margin(t = 10), size = 8),
         legend.position = "bottom",
         legend.title = element_blank(),
         legend.text = element_text(size = 12),
