@@ -1,3 +1,5 @@
+
+
 ## Incertidumbres en las mediciones:
 
 Para obtener las mediciones de las magnitudes físicas analizadas en este circuito se uso el simulador de circuitos Tinkercad, usando el voltímetro para registrar las lecturas para medir el voltaje de la resistencia analizada como el voltaje suministrado al circuito. y el amperímetro para registrar la intensidad de corriente por el circuito.
@@ -29,7 +31,7 @@ En la ecuación anterior se puede ver que los valores para la incertidumbre de l
 Table 1: Mediciones experimentales de la resistencia y su incertidumbre en un circuito eléctrico
 
 | Lectura | $V_{resistencia}$ (V) | $\delta V$ (V) | $I$ (mA) | $\delta I$ (mA) | Resistencia ($\Omega$) | $\delta R$ ($\Omega$) |
-|--------:|----------------------:|---------------:|---------:|----------------:|-----------------------:|----------------------:|
+|----------:|----------:|----------:|----------:|----------:|----------:|----------:|
 |       1 |                     2 |           0.01 |     42.6 |             0.1 |                46.9484 |                0.2593 |
 |       2 |                     4 |           0.01 |     85.1 |             0.1 |                47.0035 |                0.1298 |
 |       3 |                     6 |           0.01 |    128.0 |             0.1 |                46.8750 |                0.0863 |
@@ -41,10 +43,21 @@ Table 1: Mediciones experimentales de la resistencia y su incertidumbre en un ci
 |       9 |                    18 |           0.01 |    383.0 |             0.1 |                46.9974 |                0.0288 |
 |      10 |                    20 |           0.01 |    426.0 |             0.1 |                46.9484 |                0.0259 |
 
+
+A continuación en el siguiente gráfico se muestra la relación del voltaje de la resistencia y la corriente del circuito en un gráfico de dispersión. En el gráfico se pueden apreciar dos cosas, la primera es que los las incertidumbres son relativamente pequeñas, esto se ve reflejado con la imperceptible visualización de las barras de error en las lecturas, lo segundo es que hay un dato atípico, en la tabla se puede verificar que este dato corresponde a la lectura 8, el error se da en la medición de la corriente para un voltaje en la resistencia de 16 V. Se presume que el error se debe a uno del tipo aleatorio. Por ahora simplemente sera un dato que se eliminara para continuar con el análisis 
+
+
+<div>
+<p style = 'text-align:center;'>
+<img src="imgs/img1.png" alt="Figura 1. Primer grafico de disperción de los datos crudos de voltaje y corriente.">
+</p>
+</div>
+
+
 # Visualizaciones:
 
 | Lectura | Voltaje.suministrado..V. | Intensidad.de.corriente..mI. | Voltaje.de.la.resistencia..V. |
-|--------:|-------------------------:|-----------------------------:|------------------------------:|
+|-----------------:|-----------------:|-----------------:|-----------------:|
 |       1 |                        2 |                         42.6 |                             2 |
 |       2 |                        4 |                         85.1 |                             4 |
 |       3 |                        6 |                        128.0 |                             6 |
